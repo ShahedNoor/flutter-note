@@ -31,6 +31,7 @@ class NoteDatabase extends ChangeNotifier {
     List<Note> fetchNotes = await isar.notes.where().findAll();
     currentNotes.clear();
     currentNotes.addAll(fetchNotes);
+    notifyListeners();
   }
 
   // Update note
@@ -41,6 +42,7 @@ class NoteDatabase extends ChangeNotifier {
       await isar.writeTxn(() => isar.notes.put(existingNote));
       await fetchNotes();
     }
+    notifyListeners();
   }
 
   // Delete note
