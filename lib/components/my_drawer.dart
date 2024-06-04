@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note/components/drawer_tile.dart';
+import 'package:note/pages/about_page.dart';
 import 'package:note/pages/notes_page.dart';
 import 'package:note/pages/settings_page.dart';
 
@@ -49,6 +50,22 @@ class MyDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const SettingsPage(),
+                ),
+              );
+            },
+          ),
+          DrawerTile(
+            title: 'About',
+            leading: Icon(
+              Icons.info,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AboutPage(),
                 ),
               );
             },
